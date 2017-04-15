@@ -21,6 +21,7 @@ defmodule BankStatement do
     |> parse
     |> filter
     |> normalize
+    |> sort
   end
 
   # Callback to handle parsing CSV content.
@@ -60,6 +61,18 @@ defmodule BankStatement do
     string
     |> String.to_float
     |> abs
+  end
+
+  # Sort the CSV according to ascending order of amount.
+  defp sort(rows) do
+    Enum.sort(rows, &sort_asc_by_amount(&1, &2))
+  end
+
+  # Callback to sort row data by amount column. Define previous and next amount
+  #  values in function definition argument list, ignoring the first two cells
+  #  of the rows with the special underscore char.
+  defp sort_asc_by_amount([_, _, previous_amount], [_, _, next_amount]) do
+    previous_amount < next_amount
   end
 
 end
