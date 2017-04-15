@@ -83,9 +83,11 @@ defmodule BankStatement do
     Enum.each(rows, &print_to_console(&1))
   end
 
-  # Format a CSV row. Pattern match each element in the arg list.
+  # Format a CSV row. Pattern match each element in the arg list. Use Erlang
+  #  core library to convert numeric format to 2 decimals (and avoid scientific
+  #  notation).
   defp print_to_console([date, description, amount]) do
-    IO.puts "#{date} #{description} #{amount}"
+    IO.puts "#{date} #{description} #{:erlang.float_to_binary(amount, decimals: 2)}"
   end
 
 end
