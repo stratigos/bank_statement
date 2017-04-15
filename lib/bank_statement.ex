@@ -3,6 +3,8 @@ defmodule BankStatement do
   Demo Elixir application which prettifies and sorts bank statement CSV data.
   """
 
+  alias NimbleCSV.RFC4180, as: CSV
+
   @doc """
   Hello world, indeed.
 
@@ -22,6 +24,6 @@ defmodule BankStatement do
   # Callback to handle parsing CSV content.
   # Private functions are defined with `defp`.
   defp parse(string) do
-    NimbleCSV.RFC4180.parse_string(string)
+    CSV.parse_string(string)
   end
 end
