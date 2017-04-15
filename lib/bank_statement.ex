@@ -13,6 +13,15 @@ defmodule BankStatement do
 
   """
   def list_transactions do
-    "listing transactions"
+    # Bang-read returns content, or, raises an error if file is not found
+    #  or is not readable. It does not return a tuple.
+    File.read!("lib/transactions.csv")
+    |> parse
+  end
+
+  # Callback to handle parsing CSV content.
+  # Private functions are defined with `defp`.
+  defp parse(string) do
+    NimbleCSV.RFC4180.parse_string(string)
   end
 end
