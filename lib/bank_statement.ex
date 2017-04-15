@@ -31,7 +31,9 @@ defmodule BankStatement do
   # Filter out cells from each row of a set of CSV columns.
   defp filter(rows) do
     # Drop first element, the "Account Number", from the data.
-    Enum.map(rows, fn(row) -> Enum.drop(row, 1) end)
+    # Pass each row (`&1`) into an anonymous function (`&`, short for
+    #  `fn(row) ->`)  that calls `Enum.drop` on the first element.
+    Enum.map(rows, &Enum.drop(&1, 1))
   end
 
 end
