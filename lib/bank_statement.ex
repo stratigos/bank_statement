@@ -30,7 +30,7 @@ defmodule BankStatement do
     # Pass result into aliased CSV library.
     string
     |> String.replace("\r", "")
-    |> CSV.parse_string(string)
+    |> CSV.parse_string
   end
 
   # Filter out cells from each row of a set of CSV columns.
@@ -54,9 +54,12 @@ defmodule BankStatement do
     [date, description, parse_to_float(amount)]
   end
 
-  # Turn a string into a floating point number.
+  # Turn a string into a floating point number. Return absolute value of
+  #  number, to avoid any floating point notation.
   def parse_to_float(string) do
-    String.to_float(string)
+    string
+    |> String.to_float
+    |> abs
   end
 
 end
