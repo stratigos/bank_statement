@@ -1,10 +1,10 @@
 defmodule BankStatement do
   @moduledoc """
-  Documentation for BankStatement.
+  Demo Elixir application which prettifies and sorts bank statement CSV data.
   """
 
   @doc """
-  Hello world.
+  Hello world, indeed.
 
   ## Examples
 
