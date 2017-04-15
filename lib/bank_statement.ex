@@ -22,6 +22,7 @@ defmodule BankStatement do
     |> filter
     |> normalize
     |> sort
+    |> print
   end
 
   # Callback to handle parsing CSV content.
@@ -73,6 +74,18 @@ defmodule BankStatement do
   #  of the rows with the special underscore char.
   defp sort_asc_by_amount([_, _, previous_amount], [_, _, next_amount]) do
     previous_amount < next_amount
+  end
+
+  # Print the formatted CSV content.
+  defp print(rows) do
+    IO.puts "\nTransactions:"
+    # Iterate over the rows, and pass each to a formatting callback.
+    Enum.each(rows, &print_to_console(&1))
+  end
+
+  # Format a CSV row. Pattern match each element in the arg list.
+  defp print_to_console([date, description, amount]) do
+    IO.puts "#{date} #{description} #{amount}"
   end
 
 end
