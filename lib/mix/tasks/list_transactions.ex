@@ -6,6 +6,6 @@ defmodule Mix.Tasks.ListTransactions do
 
   # Run application. Ignore argument and suppress warning with `_`.
   def run(_) do
-    Budget.list_transactions |> IO.inspect
+    BankStatement.list_transactions |> IO.inspect
   end
 end
