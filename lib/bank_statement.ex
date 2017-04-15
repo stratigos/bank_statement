@@ -19,6 +19,7 @@ defmodule BankStatement do
     #  or is not readable. It does not return a tuple.
     File.read!("lib/transactions.csv")
     |> parse
+    |> filter
   end
 
   # Callback to handle parsing CSV content.
@@ -26,4 +27,11 @@ defmodule BankStatement do
   defp parse(string) do
     CSV.parse_string(string)
   end
+
+  # Filter out cells from each row of a set of CSV columns.
+  defp filter(rows) do
+    # Drop first element, the "Account Number", from the data.
+    Enum.map(rows, fn(row) -> Enum.drop(row, 1) end)
+  end
+
 end
