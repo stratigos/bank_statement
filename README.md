@@ -10,6 +10,6 @@ Run the application via `mix`.
 
 ## Deps
 
-*Elixir* 1.4.1
-*Erlang* 19
-*nimble_csv* 0.1.0
+*Elixir* 1.4.1  
+*Erlang* 19  
+*nimble_csv* 0.1.0  
