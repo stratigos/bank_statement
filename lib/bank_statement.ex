@@ -87,7 +87,7 @@ defmodule BankStatement do
   #  core library to convert numeric format to 2 decimals (and avoid scientific
   #  notation).
   defp print_to_console([date, description, amount]) do
-    IO.puts "#{date} #{description} #{:erlang.float_to_binary(amount, decimals: 2)}"
+    IO.puts "#{date} #{description} \t$#{:erlang.float_to_binary(amount, decimals: 2)}"
   end
 
 end
