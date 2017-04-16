@@ -1,19 +1,15 @@
 # BankStatement
 
-**TODO: Add description**
+Prettifies and formats output from a bank transaction CSV file.
 
-## Installation
+## Example Application
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `bank_statement` to your list of dependencies in `mix.exs`:
+This is an example application to explore some fundamentals of Elixir. It reads the file at `lib/transactions.csv`, and formats the content for display on a repl cli. 
 
-```elixir
-def deps do
-  [{:bank_statement, "~> 0.1.0"}]
-end
-```
+Run the application via `mix`.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/bank_statement](https://hexdocs.pm/bank_statement).
+## Deps
 
+*Elixir* 1.4.1
+*Erlang* 19
+*nimble_csv* 0.1.0
