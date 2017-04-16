@@ -8,6 +8,6 @@ defmodule Mix.Tasks.ListTransactions do
   #  description `@shortdoc` via `mix help` (CLI).
   @shortdoc "List transactions from CSV file."
   def run(_) do
-    BankStatement.list_transactions |> IO.inspect
+    BankStatement.list_transactions # Debug: `|> IO.inspect`
   end
 end
